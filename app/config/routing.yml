@@ -1,0 +1,10 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+soc_static:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    soccer/index_static.html.twig
+        maxAge:       60
+        sharedAge:    60
