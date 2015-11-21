@@ -1,73 +1,38 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Tests\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TeamControllerTest extends\PHPUnit_Framework_TestCase
+class TeamControllerTest extends WebTestCase
 {
     public function testteamShowAction()
     {
-        $strResp = new TeamController();
-        $request = new Request();
-        $strResp->teamShowAction('Ukraine', $request);
+        $client = static::createClient();
 
-        $this->assertContains('body', $strResp);
+        $crawler = $client->request('GET', '/team/Ukraine');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains('player10', $crawler->filter('body')->text());
     }
-/*
-    public function testUpdate()
+
+    public function testflagShowAction()
     {
-        $stub = $this->getMockBuilder('Models\Word\EngWord')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $client = static::createClient();
 
-        $str = array('eng_word'=>'sub', 'id_en'=>3);
-        $stub->method('update')->willReturn($str);
+        $crawler = $client->request('GET', '/flag/Iceland');
 
-        $this->assertArrayHasKey('id_en',$stub->update('name'));
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains('amet', $crawler->filter('body')->text());
     }
 
-    public function testEngWordHasAttr()
+    public function testcoachShowAction()
     {
-        $this->assertClassHasAttribute('connector','Models\Word\EngWord');
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', 'team/Northern/coach/coach3');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains('dolor', $crawler->filter('body')->text());
     }
-
-    public function testFindName()
-    {
-        $stub = $this->getMockBuilder('Models\Word\EngWord')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $subArr = [
-            0=> [0, 'id_en', '5']
-        ];
-        $stub->method('findName')->willReturn($subArr);
-
-        $this->assertArraySubset([0=>[0, 'id_en', '5']], $stub->findName('query'));
-
-    }
-
-    /**
-     * @param $arr
-     * @dataProvider removeProvider
-     */
-  /*  public function testRemove($exp, $arr)
-    {
-        $stub = $this->getMockBuilder('Models\Word\EngWord')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        var_dump($arr);
-        $stub->method('remove')->willReturn($arr);
-
-        $this->assertCount($exp, $stub->remove($arr));
-    }
-
-    public function removeProvider()
-    {
-        return [
-            [1, array('arbitrary')],
-        ];
-    }
-  */
 }
