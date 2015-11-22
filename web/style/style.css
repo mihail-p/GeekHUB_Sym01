@@ -8,10 +8,6 @@ h1, h2 {
     margin: 0 0 .5em;
 }
 
-h1 {
-    font-size: 36px;
-}
-
 h2 {
     font-size: 21px;
     margin-bottom: 1em;
@@ -24,6 +20,12 @@ p {
 a {
     color: #0000F0;
 }
+
+a h3 {
+    color: #5e5e5e;
+}
+
+
 
 a:hover {
     text-decoration: none;
