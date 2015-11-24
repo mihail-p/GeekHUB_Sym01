@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %}Welcome euro 2016{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}">
 {% endblock %}
 {% block body %}
     <div id="wrapper">
-        <h1>Welcome to EURO 2016 tournament</h1>
+        <h2 class="headerMain">Welcome to EURO 2016 tournament</h2>
 
         <div id="container">
             <a href="{{ path('flag', {'flag': 'France'}) }}">
-                <img src="/img/flag_fr.png">
+                <img src="{{ asset('img/flag_fr.png') }}">
             </a><br>
             <a href="{{ path('team', {'team': 'France'}) }}">
                 France

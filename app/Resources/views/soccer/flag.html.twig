@@ -1,0 +1,17 @@
+{% extends 'soccer/s_base.html.twig' %}
+{% block body %}
+    <div id="wrapper">
+    <a id="mainUrl" href="{{ url('soc_static') }}">
+        Main
+    </a><br>
+    Flag:
+    {% if trueRout %}
+        <span id="team" style="color: #2b542c">{{ flag }}</span><br>
+    {% else %}
+        <span style="color: red">Name of country: {{ flag }} WRONG!!!</span><br>
+    {% endif %}
+    <br>
+    <span class="header">About {{ flag }}:</span>
+    <br>
+    <p>{{ about }}</p>
+{% endblock %}

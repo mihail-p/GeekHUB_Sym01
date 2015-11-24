@@ -1,16 +1,12 @@
-{% extends 'base.html.twig' %}
-{% block title %}Welcome euro 2016{% endblock %}
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
-{% endblock %}
+{% extends 'soccer/s_base.html.twig' %}
 {% block body %}
 
     <div id="wrapper">
-        <a href="{{ url('soc_static') }}">
-            <h3>Main</h3>
-        </a>
+        <a id="mainUrl" href="{{ url('soc_static') }}">
+            Main
+        </a><br>
         {% if trueRout %}
-            <span style="color: #2b542c">{{ team }}:</span><br>
+            <span id="team" style="color: #2b542c">{{ team }}:</span><br>
          {% else %}
              <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
         {% endif %}
@@ -27,11 +23,9 @@
             {% endfor %}
         </ul>
         <p>
-            Last played matches: <br>
+            <span class="header">Last played matches: </span><br>
             {{ lastMatches }}
         </p>
-
     </div>
-
 
 {% endblock %}

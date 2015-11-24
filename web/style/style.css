@@ -1,15 +1,15 @@
 body {
     background: #F5F5F5;
-    font: 18px/1.5 sans-serif;
+    font: 18px/1.5 serif;
 }
 
-h1, h2 {
+h1{
     line-height: 1.2;
     margin: 0 0 .5em;
 }
 
 h2 {
-    font-size: 21px;
+    font-size: 26px;
     margin-bottom: 1em;
 }
 
@@ -20,12 +20,22 @@ p {
 a {
     color: #0000F0;
 }
-
-a h3 {
-    color: #5e5e5e;
+.headerMain {
+    color: #979797;
 }
-
-
+#mainUrl {
+    color: #979797;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#team {
+    font-size: 1.1em;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.header {
+    font: italic bold 1em "Liberation Sans";
+}
 
 a:hover {
     text-decoration: none;
