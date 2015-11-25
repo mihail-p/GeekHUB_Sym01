@@ -1,0 +1,23 @@
+{
+  "name": "hw.local",
+  "description": "Home Work Symfony 01",
+  "main": "index.js",
+  "authors": [
+    "Mihail Pronyuk"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "https://github.com/mihail-p/GeekHUB_Sym01",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
