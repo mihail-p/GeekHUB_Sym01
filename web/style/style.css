@@ -1,95 +1,12 @@
-body {
-    background: #F5F5F5;
-    font: 18px/1.5 serif;
-}
 
-h1{
-    line-height: 1.2;
-    margin: 0 0 .5em;
-}
-
-h2 {
-    font-size: 26px;
-    margin-bottom: 1em;
-}
-
-p {
-    margin: 0 0 1em 0;
-}
-
-a {
-    color: #0000F0;
-}
 .headerMain {
     color: #979797;
 }
 #mainUrl {
     color: #979797;
-    font-size: 1.2em;
-    font-weight: bold;
 }
 #team {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
-}
-.header {
-    font: italic bold 1em "Liberation Sans";
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-code {
-    background: #F5F5F5;
-    max-width: 100px;
-    padding: 2px 6px;
-    word-wrap: break-word;
-}
-
-#wrapper {
-    background: #FFF;
-    margin: 1em auto;
-    max-width: 1024px;
-    width: 95%;
-}
-
-#container {
-    padding: 1em;
-    float: left;
-}
-
-#welcome h1 span {
-    display: block;
-    font-size: 75%;
-}
-
-@media (min-width: 768px) {
-    #wrapper {
-        width: 80%;
-        margin: 2em auto;
-    }
-
-    #status a, #next a {
-        display: block;
-    }
-
-    @-webkit-keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
 }

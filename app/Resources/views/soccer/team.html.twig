@@ -1,14 +1,23 @@
 {% extends 'soccer/s_base.html.twig' %}
-{% block body %}
+
+ {% block header %}
+     <header id="top">
+         <div class="container">
+             <h2 class="text-center">
+                 <a id="mainUrl" href="{{ url('soc_static') }}">EURO 2016 tournament</a></h2>
+             <a id="mainUrl" href="{{ url('soc_static') }}">
+                 Main
+             </a><br>
+         </div>
+     </header>
+ {% endblock %}
+{% block content %}
 
     <div id="container">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10">
 
-                <a id="mainUrl" href="{{ url('soc_static') }}">
-                    Main
-                </a><br>
                 {% if trueRout %}
                     <span id="team" style="color: #2b542c">{{ team }}:</span><br>
                 {% else %}
@@ -37,7 +46,7 @@
                     {{ lastMatches }}
                 </p>
             </div>
-            <div class="col-lg-1"
+            <div class="col-lg-1"></div>
         </div>
     </div>
 

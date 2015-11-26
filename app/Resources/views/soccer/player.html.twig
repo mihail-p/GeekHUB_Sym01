@@ -1,12 +1,9 @@
-{% extends 'soccer/s_base.html.twig' %}
-{% block body %}
+{% extends ':soccer:team.html.twig' %}
+{% block content %}
     <div id="container">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-9">
-                <a id="mainUrl" href="{{ url('soc_static') }}">
-                    Main
-                </a><br>
                 Team:
                 {% if trueRout %}
                     <span id="team" style="color: #2b542c">{{ team }}:</span><br>
