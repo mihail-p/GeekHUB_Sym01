@@ -13,7 +13,7 @@ class TeamControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/team/Ukraine');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('player10', $crawler->filter('body')->text());
+        $this->assertContains('list of PLAYERS', $crawler->filter('body')->text());
     }
 
     public function testflagShowAction()
@@ -30,9 +30,9 @@ class TeamControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', 'team/Northern/coach/coach3');
+        $crawler = $client->request('GET', 'team/Northern/coach/Trinity Anderson');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('dolor', $crawler->filter('body')->text());
+        $this->assertContains('EURO 2016', $crawler->filter('body')->text());
     }
 }
