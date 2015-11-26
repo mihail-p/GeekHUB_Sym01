@@ -1,23 +1,30 @@
 {% extends 'soccer/s_base.html.twig' %}
 {% block body %}
-    <div id="wrapper">
-    <a id="mainUrl" href="{{ url('soc_static') }}">
-        Main
-    </a><br>
-    Team:
-    {% if trueRout %}
-        <span id="team" style="color: #2b542c">{{ team }}:</span><br>
-    {% else %}
-        <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
-    {% endif %}
-    {% block peoples %}
-        Player:
-        {{ player }}
-    {% endblock %}
-    <br><br>
-    <span class="header">Biography:</span>
-    <br>
+    <div id="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <a id="mainUrl" href="{{ url('soc_static') }}">
+                    Main
+                </a><br>
+                Team:
+                {% if trueRout %}
+                    <span id="team" style="color: #2b542c">{{ team }}:</span><br>
+                {% else %}
+                    <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
+                {% endif %}
+                {% block peoples %}
+                    Player:
+                    {{ player }}
+                {% endblock %}
+                <br><br>
+                <span class="header">Biography:</span>
+                <br>
+                <p>{{ biography }}</p>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
 
-    <p>{{ biography }}</p>
 
 {% endblock %}
