@@ -23,7 +23,7 @@ class TeamControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/flag/Iceland');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('amet', $crawler->filter('body')->text());
+        $this->assertContains('About', $crawler->filter('body')->text());
     }
 
     public function testcoachShowAction()
