@@ -4,10 +4,18 @@
      <header id="top">
          <div class="container">
              <h2 class="text-center">
-                 <a id="mainUrl" href="{{ url('soc_static') }}">EURO 2016 tournament</a></h2>
-             <a id="mainUrl" href="{{ url('soc_static') }}">
+                 <a id="mainUrl" href="{{ url('root') }}">EURO 2016 tournament</a></h2>
+             <a id="mainUrl" href="{{ url('root') }}">
                  Main
-             </a><br>
+             </a>
+             {% block nav %}
+                 <a id="mainUrl" href="{{ path('team', {'team': team}) }}">
+                     Team
+                 </a>
+                 <a id="mainUrl" href="{{ path('flag', {'flag': team}) }}">
+                     Flag
+                 </a>
+             {% endblock %}
          </div>
      </header>
  {% endblock %}
