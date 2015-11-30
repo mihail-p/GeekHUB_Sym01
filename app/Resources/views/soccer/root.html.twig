@@ -22,9 +22,10 @@
                     </div>
                     </div>
                     <div class="text-center">
-                        {% if person.group1 != 'g' %}
-                            <h5>Group {{ person.group1|upper }}</h5>
+                        {% if person.group != 'g' %}
+                            <h5>Group {{ person.group|upper }}</h5>
                         {% endif %}
+
                     </div>
                 {% endif %}
             {% endfor %}
