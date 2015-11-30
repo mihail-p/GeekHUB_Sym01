@@ -10,3 +10,6 @@
 /web/bundles/
 /node_modules/
 /bower_components/
+/web/img/
+/web/js/
+/web/css/

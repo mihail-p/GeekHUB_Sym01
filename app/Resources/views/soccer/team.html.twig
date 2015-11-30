@@ -5,14 +5,14 @@
          <div class="container">
              <h2 class="text-center">
                  <a id="mainUrl" href="{{ url('root') }}">EURO 2016 tournament</a></h2>
-             <a id="mainUrl" href="{{ url('root') }}">
+             <a class="btn btn-info btn-xs" href="{{ url('root') }}">
                  Main
              </a>
              {% block nav %}
-                 <a id="mainUrl" href="{{ path('team', {'team': team}) }}">
+                 <a class="btn btn-info btn-xs" href="{{ path('team', {'team': team}) }}">
                      Team
                  </a>
-                 <a id="mainUrl" href="{{ path('flag', {'flag': team}) }}">
+                 <a class="btn btn-info btn-xs" href="{{ path('flag', {'flag': team}) }}">
                      Flag
                  </a>
              {% endblock %}
