@@ -3,7 +3,7 @@
 namespace AppBundle\Model;
 
 use Faker;
-class Team
+class TeamF
 {
     private $fake;
 
