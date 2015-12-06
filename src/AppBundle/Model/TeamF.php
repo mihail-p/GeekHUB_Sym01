@@ -29,15 +29,15 @@ class TeamF
         return $fText;
     }
 
-    public function fPersonStr($num)
+    public function fPersonStr()  //$num)
     {
         $fake = $this->fake;
-        $fList = [];
-        for ($i = 1; $i <= $num; $i++) {
+ /*       $fList = [];
+        for ($i = 1; $i <= $num; $i++) { */
             $fPerson = $fake->firstName.' '.$fake->lastName;
-            $fList[$i] = ($fPerson);
-        }
-        return $fList;
+ /*           $fList[$i] = ($fPerson);
+        }  */
+        return $fPerson; // $fList;
     }
 
     public function age()

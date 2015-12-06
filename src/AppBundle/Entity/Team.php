@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,16 @@ class Team
      * @ORM\Column(name="country", type="string", length=100)
      */
     private $country;
+
+    /**
+     * * @ORM\OneToMany(targetEntity="AppBundle\Entity\Players", mappedBy="team")
+     */
+    protected $players;
+
+    public function __construct()
+    {
+        $this->players = new ArrayCollection();
+    }
 
 
     /**
@@ -62,5 +73,38 @@ class Team
     {
         return $this->country;
     }
-}
 
+    /**
+     * Add player
+     *
+     * @param \AppBundle\Entity\Players $player
+     *
+     * @return Team
+     */
+    public function addPlayer(\AppBundle\Entity\Players $player)
+    {
+        $this->players[] = $player;
+
+        return $this;
+    }
+
+    /**
+     * Remove player
+     *
+     * @param \AppBundle\Entity\Players $player
+     */
+    public function removePlayer(\AppBundle\Entity\Players $player)
+    {
+        $this->players->removeElement($player);
+    }
+
+    /**
+     * Get players
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+}
