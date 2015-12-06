@@ -34,12 +34,19 @@ class Team
      */
     protected $players;
 
+    /**
+     * * @ORM\OneToMany(targetEntity="AppBundle\Entity\Coaches", mappedBy="team")
+     */
+    protected $coaches;
+
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->players = new ArrayCollection();
+        $this->coaches = new ArrayCollection();
     }
-
-
     /**
      * Get id
      *
@@ -106,5 +113,39 @@ class Team
     public function getPlayers()
     {
         return $this->players;
+    }
+
+    /**
+     * Add coach
+     *
+     * @param \AppBundle\Entity\Coaches $coach
+     *
+     * @return Team
+     */
+    public function addCoach(\AppBundle\Entity\Coaches $coach)
+    {
+        $this->coaches[] = $coach;
+
+        return $this;
+    }
+
+    /**
+     * Remove coach
+     *
+     * @param \AppBundle\Entity\Coaches $coach
+     */
+    public function removeCoach(\AppBundle\Entity\Coaches $coach)
+    {
+        $this->coaches->removeElement($coach);
+    }
+
+    /**
+     * Get coaches
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCoaches()
+    {
+        return $this->coaches;
     }
 }

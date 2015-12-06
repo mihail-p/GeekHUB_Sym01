@@ -40,8 +40,8 @@ class TeamF
         return $fPerson; // $fList;
     }
 
-    public function age()
+    public function age($y1, $y2)
     {
-        return rand(19,35);
+        return rand($y1, $y2);
     }
 }
