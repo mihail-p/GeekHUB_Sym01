@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}">
 {% endblock %}
+
 {% block body %}
     {% block header %}
         <header id="top">
@@ -13,7 +14,7 @@
         </header>
     {% endblock %}
     {% block content %}{% endblock %}
-    <a href="{{ path('createT') }}">
-        Crate Teams
+    <br><a href="{{ path('createT') }}">
+        Crate all objects
     </a>
 {% endblock %}

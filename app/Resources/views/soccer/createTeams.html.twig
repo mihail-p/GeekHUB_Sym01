@@ -1,6 +1,13 @@
 {% extends ':soccer:s_base.html.twig' %}
+{% block header %}
+    <header id="top">
+        <div class="container">
+            <h2 class="text-center">
+                <a id="mainUrl" href="{{ url('root') }}">EURO 2016 tournament</a></h2>
+        </div>
+    </header>
+{% endblock %}
 {% block content %}
-    Countries created:<br>
-    Last object: id: <b>{{ country.id }}</b> name: <b>{{ country.country }}</b><br><br>
-    {{ dump(teamall) }}
+    Objects created:<br>
+    Last object Team: id: <b>{{ country.id }}</b> name: <b>{{ country.country }}</b><br><br>
 {% endblock content %}

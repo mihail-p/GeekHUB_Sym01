@@ -40,6 +40,17 @@ class TeamF
         return $fPerson; // $fList;
     }
 
+    public function fPersonStrOld($num)
+    {
+        $fake = $this->fake;
+        $fList = [];
+        for ($i = 1; $i <= $num; $i++) {
+            $fPerson = $fake->firstName.' '.$fake->lastName;
+            $fList[$i] = ($fPerson);
+        }
+        return $fList;
+    }
+
     public function age($y1, $y2)
     {
         return rand($y1, $y2);
