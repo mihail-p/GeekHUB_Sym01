@@ -2,7 +2,7 @@
     {% block content %}
         <div id="container">
             <div class="text-center">
-                <i>Group A</i>
+                <h5><i>Group A</i></h5>
             </div>
             {% for person in rand %}
                 {% if person.number == 1 %}
@@ -23,7 +23,7 @@
                     </div>
                     <div class="text-center">
                         {% if person.group != 'g' %}
-                            <h5>Group {{ person.group|upper }}</h5>
+                            <h5><i>Group {{ person.group|upper }}</i></h5>
                         {% endif %}
 
                     </div>

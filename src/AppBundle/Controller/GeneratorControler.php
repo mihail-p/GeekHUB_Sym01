@@ -14,6 +14,7 @@ class GeneratorControler extends Controller
     private $teamAll = array('France', 'Iceland', 'Czech Republic', 'Turkey', 'Belgium', 'Wales', 'Spain', 'Slovakia',
         'Germany', 'Poland', 'England', 'Switzerland', 'Northern Ireland', 'Romania', 'Austria', 'Russia',
         'Italy', 'Croatia', 'Portugal', 'Albania', 'Hungary', 'Republic of Ireland', 'Ukraine', 'Sweden');
+
     /**
      * @Route("/createTeams", name="createT")
      */
@@ -21,6 +22,8 @@ class GeneratorControler extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('AppBundle:Team');
+        $lastTeam = '';
+        $lastObj = '';
 
         // ---- create list Countries ------
         foreach ($this->teamAll as $item) {
@@ -29,15 +32,18 @@ class GeneratorControler extends Controller
                 $teams->setCountry($item);
                 $em->persist($teams);
             }
+            $lastTeam = $item;
         }
         $teamAll = $repository->findAll();
 
         // ---- create list Players ------
-        $query = $em->createQuery(
-            'SELECT p.age FROM AppBundle:Players p WHERE p.age > 18'
-        );
-        $res = $query-> setMaxResults(1)->getOneOrNullResult();
-        if ($res < 1) {
+        /* $query = $em->createQuery(
+            'SELECT p.age FROM AppBundle:Players p WHERE p.age > 18')
+            ->setMaxResults(1)
+            ->getOneOrNullResult();*/
+        $countP = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Players p')
+        ->getSingleScalarResult();
+        if ($countP < 1) {
             foreach ($teamAll as $team) {
                 for ($i = 1; $i <= 10; $i++) {
                     $players = new Players();
@@ -58,11 +64,13 @@ class GeneratorControler extends Controller
             $em->flush();
         }
         // ---- create list Coaches ------
-        $query = $em->createQuery(
+        /*$query = $em->createQuery(
             'SELECT c.age FROM AppBundle:Coaches c WHERE c.age > 27'
-        );
-        $res = $query-> setMaxResults(1)->getOneOrNullResult();
-        if ($res < 1) {
+        );*/
+        $countC = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Coaches p')
+            ->getSingleScalarResult();
+        /* $res = $query->setMaxResults(1)->getOneOrNullResult(); */
+        if ($countC < 1) {
             foreach ($teamAll as $team) {
                 for ($i = 1; $i <= 4; $i++) {
                     $coaches = new Coaches();
@@ -78,14 +86,14 @@ class GeneratorControler extends Controller
 
                     //$em->persist($team);
                     $em->persist($coaches);
-
                 }
             }
             $em->flush();
         }
-        $res = $repository->findOneByCountry('Sweden');
+        $res = $repository->findOneByCountry($lastTeam);
 
-        return $this->render(':soccer:createTeams.html.twig', array('country' => $res));
+        return $this->render(':soccer:createTeams.html.twig', array('country' => $res, 'lastTeam' => $lastTeam,
+            'lastObj' => $lastObj, 'countP' => $countP, 'countC' => $countC, 'teamAll' => $teamAll));
 
     }
 }

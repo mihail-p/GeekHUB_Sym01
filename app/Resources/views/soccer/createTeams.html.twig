@@ -8,6 +8,9 @@
     </header>
 {% endblock %}
 {% block content %}
-    Objects created:<br>
-    Last object Team: id: <b>{{ country.id }}</b> name: <b>{{ country.country }}</b><br><br>
+    Created Objects:<br>
+    Last object Team: id: <b>{{ country.id }}</b> name: <b>{{ country.country }}</b><br>
+    Amount of Players: {{ countP }}<br>
+    Amount of Coaches: {{ countC }}<br><br>
+    {{ dump(lastTeam) }}{{ dump(lastObj) }}
 {% endblock content %}

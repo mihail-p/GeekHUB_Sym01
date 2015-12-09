@@ -31,10 +31,14 @@
                 {% else %}
                     <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
                 {% endif %}
+{#  testing...              {{ dump(listPlayers) }} #}
                 list of PLAYERS:<br>
                 <ul>
-                    {% for item in listPlayers %}
-                        <li><a href="{{ path('player', {'team': team, 'player': item}) }}">{{ item }}</a></li>
+                    {% for player in teamObj.players %}
+                        <li>
+                            {#{{ dump(player) }}#}
+                            <a href="{{ path('player', {'team': team, 'player': player.name}) }}">{{ player.name }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
@@ -43,12 +47,12 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-9">
-                {#{{ listTeam.country }}<br>#}
                 list of COACHES:<br>
                 <ul>
-                    {% for item in listCoaches %}
-                        <li><a href="{{ path('coach', {'team': team, 'coach': item }) }}">{{ item }} </a></li>
-
+                    {% for coach in teamObj.coaches %}
+                        <li>
+                            <a href="{{ path('coach', {'team': team, 'coach': coach.name }) }}">{{ coach.name }} </a>
+                        </li>
                     {% endfor %}
                 </ul>
                 <p>
