@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class PlayersRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function selectPlayerByCountry($country)
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p.name', 'p.age', 'p.biography')
+            ->join('p.team', 'team')
+            ->where('team.country = :country')
+            ->setParameter('country', $country)
+            ->getQuery()
+            ->getResult();
+    }
 }

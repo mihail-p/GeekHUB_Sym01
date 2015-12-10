@@ -44,7 +44,7 @@ class Players
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Team", inversedBy="players")
-     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     *
      */
     protected $team;
 
