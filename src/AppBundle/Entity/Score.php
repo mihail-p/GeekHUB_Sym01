@@ -42,10 +42,10 @@ class Score
     protected $country1_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Team")
-     * @ORM\JoinColumn(name="country2_id", referencedColumnName="id")
+     * @ ORM\ManyToMany(targetEntity="AppBundle\Entity\Team")
+     * @ ORM\JoinColumn(name="country2_id", referencedColumnName="id")
      */
-    protected $country2_id;
+   /* protected $country2_id; */
 
     /**
      * Get id
@@ -110,7 +110,7 @@ class Score
     public function __construct()
     {
         $this->country1_id = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->country2_id = new \Doctrine\Common\Collections\ArrayCollection();
+      /*  $this->country2_id = new \Doctrine\Common\Collections\ArrayCollection(); */
     }
 
     /**

@@ -1,0 +1,6 @@
+AppBundle\Entity\Players:
+    players{1-240}:
+        name: <name()>
+        age: <randomDigit()>
+        biography: <text(700)>
+        team: <numberBetween($min = 1, $max = 24)>
