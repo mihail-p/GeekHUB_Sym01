@@ -15,12 +15,14 @@ class FixturesLoader extends DataFixtureLoader
         if ($env == 'test') {
             return [
                 __DIR__ . '/Tests/players.yml',
-/*                __DIR__ . '/DataForTests/categories.yml',
+                __DIR__ . '/Tests/coaches.yml',
+/*              __DIR__ . '/DataForTests/categories.yml',
                 __DIR__ . '/DataForTests/users.yml', */
             ];
         }
         return [
             __DIR__ . '/Data/players.yml',
+            __DIR__ . '/Data/coaches.yml',
 /*            __DIR__ . '/Data/categories.yml',
             __DIR__ . '/Data/users.yml', */
         ];

@@ -3,4 +3,8 @@ AppBundle\Entity\Players:
         name: <name()>
         age: <numberBetween($min = 19, $max= 27)>
         biography: <text(700)>
-        team: <numberBetween($min = 1, $max = 24)>
+        team: @team*
+
+AppBundle\Entity\Team:
+    team{1..24}:
+        country: <country()>
