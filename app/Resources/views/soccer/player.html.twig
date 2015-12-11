@@ -13,15 +13,15 @@
                 {% block peoples %}
                     Player:
                     {{ player }}
+                {% endblock %}
                     <br>
                     <i>Age:</i>
-                    {{ personObj.age(18,27) }}
-                {% endblock %}
+                    {{ personObj.age }}
                 <br><br>
                 <em>Biography:</em>
                 <br>
-                <p>{{ personObj.fTextStr }}</p>
-                {{ dump(playerObj) }}
+                <p>{{ personObj.biography }}</p>
+    {# {{ dump(playerObj) }} #}
             </div>
             <div class="col-lg-1"></div>
         </div>

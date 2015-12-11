@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class CoachesRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function selectCoachByCountry($country, $name)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT c.name, c.age, c.biography FROM AppBundle:Coaches c JOIN c.team t
+     WHERE t.country = :country AND c.name = :name')
+            ->setParameter('country', $country)
+            ->setParameter('name', $name)
+            ->getOneOrNullResult();
+    }
 }
