@@ -2,11 +2,11 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AppBundle\Tests\TestBaseWeb;
 
-class TeamControllerTest extends WebTestCase
+class TeamControllerTest extends TestBaseWeb
 {
-    public function testteamShowAction()
+    public function testTeamShowAction()
     {
         $client = static::createClient();
 
@@ -16,7 +16,7 @@ class TeamControllerTest extends WebTestCase
         $this->assertContains('list of PLAYERS', $crawler->filter('body')->text());
     }
 
-    public function testflagShowAction()
+    public function testFlagShowAction()
     {
         $client = static::createClient();
 
@@ -26,7 +26,7 @@ class TeamControllerTest extends WebTestCase
         $this->assertContains('About', $crawler->filter('body')->text());
     }
 
-    public function testcoachShowAction()
+    public function testCoachShowAction()
     {
         $client = static::createClient();
 

@@ -1,0 +1,3 @@
+AppBundle\Entity\Team:
+    team{1..24}:
+        country: <randomElement($array = array ('Northern','Ukraine', 'Iceland'))> #<Country()>

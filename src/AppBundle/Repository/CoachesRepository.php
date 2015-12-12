@@ -17,6 +17,6 @@ class CoachesRepository extends \Doctrine\ORM\EntityRepository
      WHERE t.country = :country AND c.name = :name')
             ->setParameter('country', $country)
             ->setParameter('name', $name)
-            ->getOneOrNullResult();
+            ->setMaxResults(1)->getOneOrNullResult();
     }
 }

@@ -1,0 +1,6 @@
+AppBundle\Entity\Coaches:
+    coaches{1..96}:
+        name: Trinity Anderson #<name()>
+        age: <numberBetween($min = 25, $max= 40)>
+        biography: <text(700)>
+        team: @team*

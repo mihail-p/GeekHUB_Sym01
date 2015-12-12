@@ -4,7 +4,3 @@ AppBundle\Entity\Players:
         age: <numberBetween($min = 19, $max= 27)>
         biography: <text(700)>
         team: @team*
-
-AppBundle\Entity\Team:
-    team{1..24}:
-        country: <country()>

@@ -47,6 +47,9 @@ class TeamF
         for ($i = 1; $i <= $num; $i++) {
             $fPerson = $fake->firstName.' '.$fake->lastName;
             $fList[$i] = ($fPerson);
+
+            $sd = Faker\Factory::create('en_En');
+            $fake->$sd->country;
         }
         return $fList;
     }
