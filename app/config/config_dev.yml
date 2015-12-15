@@ -41,5 +41,11 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
+# hautelook/AliceBundle
+hautelook_alice:
+    locale: en_US   # default
+    seed: 1         # default
+
+
 #swiftmailer:
 #    delivery_address: me@example.com

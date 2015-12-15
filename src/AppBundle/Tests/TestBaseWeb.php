@@ -15,7 +15,7 @@ class TestBaseWeb extends WebTestCase
         $this->client = static::createClient();
         $this->runCommand(['command' => 'doctrine:database:create']);
         $this->runCommand(['command' => 'doctrine:schema:update', '--force' => true]);
-        $this->runCommand(['command' => 'doctrine:fixtures:load', '--no-interaction' => true]);
+        $this->runCommand(['command' => 'hautelook_alice:doctrine:fixtures:load', '--no-interaction' => true]);
     }
     public function tearDown()
     {
