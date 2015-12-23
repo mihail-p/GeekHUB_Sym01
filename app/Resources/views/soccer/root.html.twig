@@ -1,0 +1,33 @@
+{% extends ':soccer:s_base.html.twig' %}
+    {% block content %}
+        <div id="container">
+            <div class="text-center">
+                <h5><i>Group A</i></h5>
+            </div>
+            {% for person in rand %}
+                {% if person.number == 1 %}
+                    <div class="row">
+                    <div class="col-md-10" role="main">
+                    <div class="col-md-5"></div>
+                {% endif %}
+                <div class="col-xs-1">
+                    <a href="{{ path('flag', {'flag': person.country }) }}">
+                        <img src="/img/flag_{{ person.flag }}.gif">
+                    </a><br>
+                    <a href="{{ path('team', {'team': person.country }) }}">
+                        {{ person.country }}
+                    </a>
+                </div>
+                {% if person.number == 4 %}
+                    </div>
+                    </div>
+                    <div class="text-center">
+                        {% if person.group != 'g' %}
+                            <h5><i>Group {{ person.group|upper }}</i></h5>
+                        {% endif %}
+
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endblock %}

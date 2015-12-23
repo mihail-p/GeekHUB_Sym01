@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Welcome euro 2016{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% block header %}
+        <header id="top">
+            <div class="container">
+                <h2 class="headerMain text-center">Welcome to EURO 2016 tournament</h2>
+            </div>
+        </header>
+    {% endblock %}
+    {% block content %}{% endblock %}
+    <br><a href="{{ path('createT') }}">
+        Crate all objects
+    </a>
+{% endblock %}

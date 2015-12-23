@@ -1,0 +1,70 @@
+{% extends 'soccer/s_base.html.twig' %}
+
+ {% block header %}
+     <header id="top">
+         <div class="container">
+             <h2 class="text-center">
+                 <a id="mainUrl" href="{{ url('root') }}">EURO 2016 tournament</a></h2>
+             <a class="btn btn-info btn-xs" href="{{ url('root') }}">
+                 Main
+             </a>
+             {% block nav %}
+                 <a class="btn btn-info btn-xs" href="{{ path('team', {'team': team}) }}">
+                     Team
+                 </a>
+                 <a class="btn btn-info btn-xs" href="{{ path('flag', {'flag': team}) }}">
+                     Flag
+                 </a>
+             {% endblock %}
+             <a class="btn btn-success btn-xs" href="{{ path('allPlayers') }}">
+                 show all Players
+             </a>
+         </div>
+     </header>
+ {% endblock %}
+{% block content %}
+
+    <div id="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+
+                {% if trueRout %}
+                    <span id="team" style="color: #2b542c">{{ team }}:</span><br>
+                {% else %}
+                    <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
+                {% endif %}
+                {#{{ dump(listPlayers) }} #}
+                list of PLAYERS:<br>
+                <ul>
+                    {% for player in teamObj.players %}
+                        <li>
+                            {#{{ dump(player) }}#}
+                            <a href="{{ path('player', {'team': team, 'player': player.name}) }}">{{ player.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                list of COACHES:<br>
+                <ul>
+                    {% for coach in teamObj.coaches %}
+                        <li>
+                            <a href="{{ path('coach', {'team': team, 'coach': coach.name }) }}">{{ coach.name }} </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p>
+                    <span class="header">Last played matches: </span><br>
+                    {{ lastMatches }}
+                </p>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+
+{% endblock %}

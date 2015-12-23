@@ -1,0 +1,27 @@
+{% extends ':soccer:team.html.twig' %}
+{% block nav %}
+    <a class="btn btn-info btn-xs" href="{{ path('team', {'team': flag}) }}">
+        Team
+    </a>
+{% endblock %}
+{% block content %}
+    <div id="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                Flag:
+                {% if trueRout %}
+                    <span id="team" style="color: #2b542c">{{ flag }}</span>
+                {% else %}
+                    <span style="color: red">Name of country: {{ flag }} WRONG!!!</span>
+                {% endif %}
+                <br><br>
+                <em>About {{ flag }}:</em>
+                <br>
+    {#{{ dump(teamAll) }} #}
+                <p>{{ aboutObj.fTextStr }}</p>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+{% endblock %}

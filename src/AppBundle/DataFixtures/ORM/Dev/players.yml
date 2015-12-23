@@ -1,0 +1,6 @@
+AppBundle\Entity\Players:
+    players{1..240}:
+        name: <name()>
+        age: <numberBetween($min = 19, $max= 27)>
+        biography: <text(700)>
+        team: @team*

@@ -1,0 +1,22 @@
+
+.headerMain {
+    color: #979797;
+}
+#mainUrl {
+    color: #979797;
+}
+#team {
+    font-size: 1.2em;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.nav-pager {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+.pagination {
+    border-radius: 4px 4px 4px 4px;
+    display: inline-block;
+    margin: 3px 0;
+    padding-left: 0;
+}
