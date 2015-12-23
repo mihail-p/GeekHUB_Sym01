@@ -30,7 +30,7 @@ class TeamControllerTest extends TestBaseWeb
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', 'team/Northern/coach/Trinity Anderson');
+        $crawler = $client->request('GET', 'team/Wales/coach/Trinity Anderson');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('EURO 2016', $crawler->filter('body')->text());

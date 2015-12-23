@@ -1,3 +1,3 @@
 AppBundle\Entity\Team:
     team{1..24}:
-        country: <Country()>
+        country (unique): <randomElement(['France', 'Iceland', 'Czech Republic', 'Turkey', 'Belgium', 'Wales', 'Spain', 'Slovakia', 'Germany', 'Poland', 'England', 'Switzerland', 'Northern Ireland', 'Romania', 'Austria', 'Russia', 'Italy', 'Croatia', 'Portugal', 'Albania', 'Hungary', 'Republic of Ireland', 'Ukraine', 'Sweden'])> #<Country()>
