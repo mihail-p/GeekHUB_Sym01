@@ -19,6 +19,11 @@
              <a class="btn btn-success btn-xs" href="{{ path('allPlayers') }}">
                  show all Players
              </a>
+             {% block nav_adm %}
+                 <a class="btn btn-success btn-xs" href="{{ path('adm_team_add', {'team': team}) }}">
+                     admin
+                 </a>
+             {% endblock %}
          </div>
      </header>
  {% endblock %}
@@ -28,12 +33,13 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-
-                {% if trueRout %}
-                    <span id="team" style="color: #2b542c">{{ team }}:</span><br>
-                {% else %}
-                    <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
-                {% endif %}
+                {% block trueR %}
+                    {% if trueRout %}
+                        <span id="team" style="color: #2b542c">{{ team }}:</span><br>
+                    {% else %}
+                        <span style="color: red">Name of country: {{ team }} WRONG!!!</span><br>
+                    {% endif %}
+                {% endblock %}
                 {#{{ dump(listPlayers) }} #}
                 list of PLAYERS:<br>
                 <ul>
