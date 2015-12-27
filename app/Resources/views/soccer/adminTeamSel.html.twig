@@ -7,18 +7,11 @@
             <div class="col-md-2">
                 <br>
                 <ul>
-                    <li>
-                        <a class="btn btn-success btn-xs" href="{{ path('adm_team_mod', {'team': team}) }}">
-                            Team Sel Test
-                        </a>
-                    </li><li>
-                        <a class="btn btn-success btn-xs" href="{{ path('adm_pl_add', {'team': team}) }}">
-                            Player add
-                        </a>
-                    </li>
+                    <li>adminSel</li>
+                    <li>Player</li>
                     <li>Coach</li>
                     <li>-----</li>
-                    <li>{{ team }}</li>
+                    <li>team</li>
                     <li>-----</li>
                     <li>Link7</li>
                 </ul>
@@ -27,7 +20,13 @@
                 <br>
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
+                Submit<input type="submit" value="Submit" class="btn btn-default left" />
                 {{ form_end(form) }}
+                <br>
+                {{ dump(formData) }}
+                -------------------------
+                <p>{{ dump(formString) }}</p>
+                <p>{{ formString }}</p>
             </div>
         </div>
     </div>

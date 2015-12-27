@@ -13,14 +13,22 @@
                         <th{% if pagination.isSorted('p.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'p.name') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Age', 'p.age') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Country', 't.country') }}</th>
+                        {% if action == 'edit' %}<th></th>{% endif %}
                     </tr>
                     {# table body #}
                     {% for player in pagination %}
                         <tr {% if loop.index is odd %}class="color"{% endif %}>
                             <td>{{ player.id }}</td>
-                            <td>{{ player.name }}</td>
+                            {% if action == 'edit' %}
+                            <td><a href="{{ path('adm_pl_mod', {'team': player.country, 'id': player.id}) }}">{{ player.name }}</a></td>
+                                {% else %}
+                                    <td>{{ player.name }}</td>
+                            {% endif %}
                             <td>{{ player.age }}</td>
                             <td>{{ player.country }}</td>
+                            {% if action == 'edit' %}
+                            <td><a class="glyphicon glyphicon-remove-circle" aria-hidden="true" href="{{ path('adm_pl_del', {'team': player.country, 'id': player.id}) }}"></a></td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                 </table>
