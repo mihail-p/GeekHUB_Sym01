@@ -34,8 +34,9 @@
                 {% block adm_cont %}
                     <a class="btn btn-success btn-xs" href="{{ path('adm_team_add', {'team': team }) }}">Team add</a>
                     <a class="btn btn-success btn-xs" href="{{ path('adm_pl_add', {'team': team}) }}">Player_add</a>
-                    <a class="btn btn-success btn-xs" href="{{ path('allPlayers', {'action': 'edit'}) }}">Player edit/remove</a>
+                    <a class="btn btn-success btn-xs" href="{{ path('allPlayers', {'action': 'player'}) }}">Player edit/remove</a>
                     <a class="btn btn-success btn-xs" href="{{ path('adm_co_add', {'team': team }) }}">Coach add</a>
+                    <a class="btn btn-success btn-xs" href="{{ path('allCoaches', {'action': 'coach' }) }}">Coach edit/remove</a>
                 {% endblock adm_cont %}
             </div>
         </div>

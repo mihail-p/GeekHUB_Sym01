@@ -18,7 +18,7 @@
                         <th{% if pagination.isSorted('p.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'p.name') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Age', 'p.age') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Country', 't.country') }}</th>
-                        {% if action == 'edit' %}
+                        {% if action == 'player' or action == 'coach' %}
                             <th></th>{% endif %}
                     </tr>
                     {# table body #}
