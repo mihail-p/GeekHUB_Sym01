@@ -30,12 +30,18 @@ gulp.task('pages-js', function() {
         .pipe(minifyJs())
         .pipe(gulp.dest('web/js/'));
 });
+
+gulp.task('fonts', function () {
+    return gulp.src(['bower_components/bootstrap/fonts/*'])
+        .pipe(gulp.dest('web/fonts/'))
+});
+
 gulp.task('clean', function () {
-    return gulp.src(['web/css/*', 'web/js/*', 'web/img/*'])
+    return gulp.src(['web/css/*', 'web/js/*', 'web/img/*', 'web/fonts/*'])
         .pipe(clean());
 });
 gulp.task('default', ['clean'], function () {
-    var tasks = ['images', 'less', 'lib-js', 'pages-js'];
+    var tasks = ['images', 'less', 'lib-js', 'pages-js', 'fonts'];
     tasks.forEach(function (val) {
         gulp.start(val);
     });
