@@ -5,7 +5,12 @@
     <div id="container">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-9"><br>
+            <div class="col-md-9">
+                {% if action == 'player' %}
+                    -- Edit <b>players</b> --
+                {% elseif action == 'coach' %}
+                    -- Edit <b>coaches</b> --
+                {% endif %}
                 <table class="table table-striped table-hover table-condensed">
                     <tr>
                         {# sorting of properties based on query components #}
@@ -13,27 +18,42 @@
                         <th{% if pagination.isSorted('p.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Name', 'p.name') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Age', 'p.age') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Country', 't.country') }}</th>
-                        {% if action == 'edit' %}<th></th>{% endif %}
+                        {% if action == 'edit' %}
+                            <th></th>{% endif %}
                     </tr>
                     {# table body #}
                     {% for player in pagination %}
                         <tr {% if loop.index is odd %}class="color"{% endif %}>
                             <td>{{ player.id }}</td>
-                            {% if action == 'edit' %}
-                            <td><a href="{{ path('adm_pl_mod', {'team': player.country, 'id': player.id}) }}">{{ player.name }}</a></td>
-                                {% else %}
-                                    <td>{{ player.name }}</td>
+                            {% if action == 'player' %}
+                                <td>
+                                    <a href="{{ path('adm_pl_mod', {'team': player.country, 'id': player.id}) }}">{{ player.name }}</a>
+                                </td>
+                            {% elseif action == 'coach' %}
+                                <td>
+                                    <a href="{{ path('adm_co_mod', {'team': player.country, 'id': player.id}) }}">{{ player.name }}</a>
+                                </td>
+                            {% else %}
+                                <td>{{ player.name }}</td>
                             {% endif %}
                             <td>{{ player.age }}</td>
                             <td>{{ player.country }}</td>
-                            {% if action == 'edit' %}
-                            <td><a class="glyphicon glyphicon-remove-circle" aria-hidden="true" href="{{ path('adm_pl_del', {'team': player.country, 'id': player.id}) }}"></a></td>
+                            {% if action == 'player' %}
+                                <td><a class="glyphicon glyphicon-remove-circle" aria-hidden="true"
+                                       title="remove player"
+                                       href="{{ path('adm_pl_del', {'team': player.country, 'id': player.id}) }}"></a>
+                                </td>
+                            {% elseif action == 'coach' %}
+                                <td><a class="glyphicon glyphicon-remove-circle" aria-hidden="true"
+                                       title="remove player"
+                                       href="{{ path('adm_co_del', {'team': player.country, 'id': player.id}) }}"></a>
+                                </td>
                             {% endif %}
                         </tr>
                     {% endfor %}
                 </table>
                 {# display navigation #}
-                 <div class="nav-pager">
+                <div class="nav-pager">
                     {{ knp_pagination_render(pagination) }}
                 </div>
                 <div class="count">

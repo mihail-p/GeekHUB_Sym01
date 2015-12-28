@@ -1,33 +1,11 @@
-{% extends ':soccer:team.html.twig' %}
-{% block nav_adm %}{% endblock %}
-{% block trueR %}{% endblock %}
-{% block content %}
-    <div id="container">
-        <div class="row">
-            <div class="col-md-2">
-                <br>
-                <ul>
-                    <li>adminSel</li>
-                    <li>Player</li>
-                    <li>Coach</li>
-                    <li>-----</li>
-                    <li>team</li>
-                    <li>-----</li>
-                    <li>Link7</li>
-                </ul>
-            </div>
-            <div class="col-md-10">
-                <br>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                Submit<input type="submit" value="Submit" class="btn btn-default left" />
-                {{ form_end(form) }}
-                <br>
-                {{ dump(formData) }}
-                -------------------------
-                <p>{{ dump(formString) }}</p>
-                <p>{{ formString }}</p>
-            </div>
-        </div>
-    </div>
+{% extends '@App/AdminTeam/admTeamShowAll.html.twig' %}
+{% block adm_cont %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    Submit<input type="submit" value="Submit" class="btn btn-default left"/>
+    {{ form_end(form) }}
+    <br>
+    {{ dump(formData) }}
+    <p>{{ dump(formString) }}</p>
+    <p>{{ formString }}</p>
 {% endblock %}

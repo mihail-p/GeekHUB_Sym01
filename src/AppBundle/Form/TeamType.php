@@ -14,8 +14,6 @@ class TeamType extends AbstractType
     {
         $builder
             ->add('country', TextType::class)
-           /* ->add('players', TextType::class)
-            ->add('coaches', TextType::class) */
             ->add('save', SubmitType::class);
     }
 

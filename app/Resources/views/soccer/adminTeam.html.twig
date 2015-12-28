@@ -1,34 +1,7 @@
-{% extends ':soccer:team.html.twig' %}
-{% block nav_adm %}{% endblock %}
-{% block trueR %}{% endblock %}
-{% block content %}
-    <div id="container">
-        <div class="row">
-            <div class="col-md-2">
-                <br>
-                <ul>
-                    <li>
-                        <a class="btn btn-success btn-xs" href="{{ path('adm_team_mod', {'team': team}) }}">
-                            Team Sel Test
-                        </a>
-                    </li><li>
-                        <a class="btn btn-success btn-xs" href="{{ path('adm_pl_add', {'team': team}) }}">
-                            Player add
-                        </a>
-                    </li>
-                    <li>Coach</li>
-                    <li>-----</li>
-                    <li>{{ team }}</li>
-                    <li>-----</li>
-                    <li>Link7</li>
-                </ul>
-            </div>
-            <div class="col-md-10">
-                <br>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
+{% extends '@App/AdminTeam/admTeamShowAll.html.twig' %}
+{% block adm_cont %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 {% endblock %}
+
