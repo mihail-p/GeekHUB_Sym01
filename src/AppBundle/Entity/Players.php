@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Players
@@ -24,6 +25,9 @@ class Players
     /**
      * @var string
      *
+     * @Assert\NotBlank(
+     *     message="You entered empty field!"
+     * )
      * @ORM\Column(name="name", type="string", length=50)
      */
     private $name;
@@ -31,6 +35,12 @@ class Players
     /**
      * @var int
      *
+     * @Assert\Range(
+     *     min="18",
+     *     max="25",
+     *     minMessage="min 18 years",
+     *     maxMessage="max: 25 years old"
+     * )
      * @ORM\Column(name="age", type="smallint")
      */
     private $age;
@@ -38,6 +48,7 @@ class Players
     /**
      * @var string
      *
+     * @Assert\Length(min="25", max="700")
      * @ORM\Column(name="biography", type="text")
      */
     private $biography;

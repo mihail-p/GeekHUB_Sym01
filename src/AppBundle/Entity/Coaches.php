@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Coaches
@@ -24,6 +25,7 @@ class Coaches
     /**
      * @var string
      *
+     * @Assert\Length(min="10", max="30")
      * @ORM\Column(name="name", type="string", length=50)
      */
     private $name;
@@ -31,6 +33,7 @@ class Coaches
     /**
      * @var string
      *
+     * @Assert\Length(min="25", max="700")
      * @ORM\Column(name="biography", type="text")
      */
     private $biography;
@@ -38,6 +41,10 @@ class Coaches
     /**
      * @var int
      *
+     * @Assert\Range(
+     *     min="21",
+     *     max="38"
+     * )
      * @ORM\Column(name="age", type="smallint")
      */
     private $age;

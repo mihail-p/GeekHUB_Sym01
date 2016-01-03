@@ -1,9 +1,33 @@
 {% extends 'AppBundle:AdminTeam:admTeamShowAll.html.twig' %}
 {% block adm_cont %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-    <br>
-   {# {{ dump(formData) }}
-    <p>{{ dump(formString) }}</p> #}
+    <form class="form-horizontal">
+        {#{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}#}
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.age) }}
+            {{ form_errors(form.age) }}
+            {{ form_widget(form.age) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.biography) }}
+            {{ form_errors(form.biography) }}
+            {{ form_widget(form.biography) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.team) }}
+            {{ form_errors(form.team) }}
+            {{ form_widget(form.team) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.modify) }}
+        </div>
+    </form>
+    {# {{ dump(formData) }}
+     <p>{{ dump(formString) }}</p> #}
 {% endblock %}
