@@ -1,33 +1,47 @@
 {% extends 'AppBundle:AdminTeam:admTeamShowAll.html.twig' %}
+
+{% form_theme form _self %}
+{% block integer_errors %}
+    {%- if errors|length > 0 -%}
+
+            {%- for error in errors -%}
+                <br><small>error:<b> {{ error.message }}</b></small><br>
+            {%- endfor -%}
+
+    {%- endif -%}
+{% endblock integer_errors %}
+
+
 {% block adm_cont %}
-    <form class="form-horizontal">
-        {#{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}#}
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <div class="form-group">
-            {{ form_label(form.name) }}
-            {{ form_errors(form.name) }}
-            {{ form_widget(form.name) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.age) }}
-            {{ form_errors(form.age) }}
-            {{ form_widget(form.age) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.biography) }}
-            {{ form_errors(form.biography) }}
-            {{ form_widget(form.biography) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.team) }}
-            {{ form_errors(form.team) }}
-            {{ form_widget(form.team) }}
-        </div>
-        <div class="form-group">
-            {{ form_widget(form.modify) }}
-        </div>
-    </form>
+    {#<form class="form-horizontal"> #}
+    {#{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}#}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.age) }}
+        {{ form_errors(form.age) }}
+        {{ form_widget(form.age) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.biography) }}
+        {{ form_errors(form.biography) }}
+        {{ form_widget(form.biography) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.team) }}
+        {{ form_errors(form.team) }}
+        {{ form_widget(form.team) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.modify) }}
+    </div>
+    {{ form_end(form) }}
+    {#</form>
     {# {{ dump(formData) }}
      <p>{{ dump(formString) }}</p> #}
 {% endblock %}
